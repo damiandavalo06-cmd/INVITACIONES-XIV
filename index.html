@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Los 15 de Valentina</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="cerrada">
+  <!-- MARCO Y BRILLOS (decoración) -->
+<div class="marco" aria-hidden="true">
+  <span class="esq esq--tl"></span>
+  <span class="esq esq--tr"></span>
+  <span class="esq esq--bl"></span>
+  <span class="esq esq--br"></span>
+</div>
+<canvas id="brillos" aria-hidden="true"></canvas>
+
+<canvas id="confeti" aria-hidden="true"></canvas>
+
+<!-- SOBRE DE ENTRADA -->
+<div class="sobre" id="sobre">
+    <canvas id="sobre-fx" aria-hidden="true"></canvas>
+  <div class="sobre__caja">
+        <div class="sello" aria-hidden="true"><span>V</span></div>
+    <p class="sobre__para">Para vos</p>
+    <h2 class="sobre__titulo">Estás invitado a los quince de Valentina</h2>
+    <button class="boton" id="btn-abrir" type="button">Abrir invitación</button>
+  </div>
+</div>
+
+<header class="portada">
+  <div class="petalos" aria-hidden="true"></div>
+  <p class="portada__frase">Mis quince años</p>
+  <h1 class="portada__nombre">Valentina</h1>
+  <p class="portada__fecha">Sábado 12 de diciembre de 2026 · Salón Los Aromos, Salta</p>
+  <a class="portada__flecha" href="#cuenta">Deslizá para ver más</a>
+</header>
+
+<main>
+  <section class="seccion" id="cuenta">
+    <h2 class="seccion__titulo">Falta poco para la fiesta</h2>
+    <div class="reloj" role="timer">
+      <div><b id="dias">00</b><span>días</span></div>
+      <div><b id="horas">00</b><span>horas</span></div>
+      <div><b id="minutos">00</b><span>minutos</span></div>
+      <div><b id="segundos">00</b><span>segundos</span></div>
+    </div>
+    <p class="cuenta__fin" id="fin-cuenta"></p>
+  </section>
+
+  <section class="seccion seccion--alt">
+    <h2 class="seccion__titulo">Quince años, quince recuerdos</h2>
+    <p class="intro">Un recorrido por mi historia. Tocá una foto para verla grande y sumá las tuyas con mi mejor recuerdo juntos.</p>
+    <div class="album" id="album"></div>
+    <label class="boton boton--claro subir">
+      Subir una foto
+      <input type="file" id="subir-foto" accept="image/*" hidden>
+    </label>
+    <p class="nota">Las fotos que subas se ven solo en tu dispositivo. Para un álbum compartido real, usá el enlace de abajo.</p>
+    <a class="enlace" id="enlace-album" href="#" target="_blank" rel="noopener">Ir al álbum compartido de la fiesta</a>
+  </section>
+
+  <section class="seccion">
+    <h2 class="seccion__titulo">Cómo va a ser el día</h2>
+    <ol class="agenda">
+      <li><time>18:30</time><div><h3>Misa de acción de gracias</h3><p>Parroquia San José, Zuviría 456</p></div></li>
+      <li><time>21:00</time><div><h3>Recepción y cena</h3><p>Salón Los Aromos, Av. Belgrano 1234</p></div></li>
+      <li><time>23:00</time><div><h3>Vals y fiesta</h3><p>La pista queda abierta hasta que se apague la música.</p></div></li>
+    </ol>
+    <iframe class="mapa" title="Mapa del salón" loading="lazy"
+      src="https://www.google.com/maps?q=Av.+Belgrano+1234,+Salta,+Argentina&output=embed"></iframe>
+    <a class="boton boton--claro" target="_blank" rel="noopener"
+       href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Los+15+de+Valentina&dates=20261212T210000/20261213T040000&location=Av.+Belgrano+1234,+Salta">Agregar al calendario</a>
+  </section>
+
+  <section class="seccion seccion--alt">
+    <h2 class="seccion__titulo">La música de mi fiesta</h2>
+    <p class="intro">Escuchá la playlist y proponé los temas que no pueden faltar.</p>
+    <iframe class="spotify" id="spotify" title="Playlist de la fiesta" loading="lazy" height="352"
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+
+    <div class="temas">
+      <h3>Tu tema para la pista</h3>
+      <div class="temas__form">
+        <input type="text" id="tema" placeholder="Canción" maxlength="60">
+        <input type="text" id="artista" placeholder="Artista" maxlength="60">
+        <button class="boton" id="btn-tema" type="button">Proponer</button>
+      </div>
+      <p class="error" id="error-tema" hidden></p>
+      <ul class="temas__lista" id="lista-temas"></ul>
+      <div class="temas__acciones">
+        <button class="boton boton--claro" id="btn-temas-wa" type="button">Enviar mis temas a Valentina</button>
+        <a class="enlace" id="enlace-colab" href="#" target="_blank" rel="noopener">Agregar directo a la playlist colaborativa</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion">
+    <h2 class="seccion__titulo">Para tener en cuenta</h2>
+    <dl class="detalles">
+      <div><dt>Vestimenta</dt><dd>Elegante. Si podés, evitá el blanco.</dd></div>
+      <div><dt>Regalos</dt><dd>Tu presencia es lo más importante. Si querés colaborar con el viaje de egresados: alias <strong id="alias">valen.15.regalo</strong></dd></div>
+    </dl>
+    <button class="boton boton--claro" id="btn-alias" type="button">Copiar alias</button>
+  </section>
+
+  <section class="seccion seccion--alt" id="confirmar">
+    <h2 class="seccion__titulo">¿Venís?</h2>
+    <p class="intro">Confirmá antes del <strong>20 de noviembre</strong>. Se abre WhatsApp con el mensaje listo.</p>
+    <div class="form">
+      <label>Tu nombre<input type="text" id="nombre" placeholder="Nombre y apellido" autocomplete="name"></label>
+      <label>Personas
+        <select id="personas"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
+      </label>
+      <fieldset><legend>¿Vas a venir?</legend>
+        <label class="op"><input type="radio" name="asist" value="si" checked> Sí, voy</label>
+        <label class="op"><input type="radio" name="asist" value="no"> No puedo ir</label>
+      </fieldset>
+      <label>Restricción alimentaria (opcional)<input type="text" id="menu" placeholder="Vegetariano, celíaco, etc."></label>
+      <p class="error" id="error-rsvp" hidden></p>
+      <button class="boton" id="btn-confirmar" type="button">Confirmar por WhatsApp</button>
+    </div>
+  </section>
+
+  <section class="seccion">
+    <h2 class="seccion__titulo">Libro de visitas</h2>
+    <p class="intro">Dejale un mensaje a Valentina.</p>
+    <div class="form">
+      <label>Tu nombre<input type="text" id="v-nombre" maxlength="40"></label>
+      <label>Mensaje<input type="text" id="v-msg" maxlength="140" placeholder="Un deseo para tus quince"></label>
+      <button class="boton" id="btn-visita" type="button">Dejar mensaje</button>
+    </div>
+    <ul class="visitas" id="visitas"></ul>
+  </section>
+</main>
+
+<footer class="pie">
+  <p>Gracias por ser parte de mis quince.</p>
+  <p class="pie__firma">Valentina Rojas</p>
+</footer>
+
+<dialog class="visor" id="visor">
+  <button class="visor__cerrar" id="visor-cerrar" aria-label="Cerrar">×</button>
+  <img id="visor-img" alt="">
+  <p id="visor-pie"></p>
+</dialog>
+
+<script src="app.js"></script>
+</body>
+</html>
