@@ -295,3 +295,107 @@ input[type=text]:focus,select:focus{ box-shadow:0 0 0 3px rgba(255,226,122,.4); 
 .esq{ border-color:#ffe27a; }
 .esq::after{ background:#ffc4ea; }
 .foto span{ background:linear-gradient(transparent,rgba(74,29,150,.9)); }
+/* ===== TEMA ROSA PASTEL + DIAMANTES ===== */
+:root{
+  --noche:#fbd9e6;                    /* fondo principal: rosa pastel */
+  --noche2:#f7c6da;                   /* secciones alternas */
+  --oro:#a8326f;                      /* títulos y acentos: frambuesa */
+  --rosa:#c24c8a;                     /* detalles */
+  --marfil:#4a1535;                   /* texto principal */
+  --m70:rgba(74,21,53,.84);           /* texto secundario */
+  --linea:rgba(168,50,111,.35);       /* líneas y bordes */
+  --serif:"Playfair Display",Georgia,serif;
+  --sans:"Lora",Georgia,serif;
+  --script:"Playfair Display",Georgia,serif;
+}
+
+body{ font-weight:500; }
+
+/* letras gruesas y elegantes */
+.seccion__titulo,
+.sobre__titulo,
+.agenda h3,
+.detalles dt,
+.temas h3{ font-weight:700; }
+.reloj b,
+.agenda time{ font-weight:700; }
+
+/* nombre y firmas: cursiva gruesa */
+.portada__nombre,
+.sobre__para,
+.pie__firma{
+  font-family:var(--script);
+  font-style:italic;
+  font-weight:800;
+  letter-spacing:-.01em;
+}
+.portada__nombre{ font-size:clamp(3.6rem,16vw,8rem); line-height:1.12; }
+.sobre__para{ font-size:1.9rem; }
+.pie__firma{ font-size:2.2rem; }
+.portada__frase,
+.cuenta__fin,
+.foto span,
+.visor p{ font-style:italic; font-weight:700; }
+
+/* nombre dorado rosado con destello */
+.portada__nombre{
+  background:linear-gradient(110deg,#a8326f 20%,#e79bc3 38%,#ffffff 50%,#e79bc3 62%,#a8326f 80%);
+  background-size:250% 100%;
+  -webkit-background-clip:text; background-clip:text;
+  -webkit-text-fill-color:transparent; color:transparent;
+  text-shadow:none;
+}
+@media (prefers-reduced-motion:no-preference){
+  .portada__nombre{ animation:destello 5s linear infinite; }
+  @keyframes destello{ from{ background-position:150% 0; } to{ background-position:-50% 0; } }
+}
+
+/* fondos */
+.portada{
+  background:
+    radial-gradient(ellipse 70% 50% at 50% 38%,rgba(255,255,255,.65),transparent 70%),
+    radial-gradient(ellipse 90% 60% at 50% 110%,rgba(231,155,195,.5),transparent 70%),
+    var(--noche);
+}
+.sobre{ background:radial-gradient(ellipse 70% 60% at 50% 40%,#fff1f7,#f9cfe0); }
+
+/* botones */
+.boton{ color:#fff; font-weight:600; }
+.boton:hover{ background:#4a1535; border-color:#4a1535; color:#fff; }
+.boton--claro{ color:var(--oro); }
+.boton--claro:hover{ background:var(--oro); color:#fff; border-color:var(--oro); }
+
+/* formularios */
+input[type=text],select{ background:rgba(255,255,255,.7); color:#4a1535; }
+input::placeholder{ color:rgba(74,21,53,.5); }
+input[type=text]:focus,select:focus{ box-shadow:0 0 0 3px rgba(168,50,111,.3); }
+.error{ color:#b3123f; }
+
+/* sello, marco, fotos y visor */
+.sello{
+  background:radial-gradient(circle at 35% 30%,#fff,#f4c7da 45%,#c9a14a);
+  box-shadow:0 6px 18px rgba(168,50,111,.35), inset 0 0 0 4px rgba(168,50,111,.18);
+}
+.sello span{ color:#a8326f; }
+.marco{ border-color:rgba(168,50,111,.6); }
+.marco::before{ border-color:rgba(201,161,74,.55); }
+.esq{ border-color:#a8326f; }
+.esq::after{ background:#c9a14a; }
+.foto span{ color:#fff; background:linear-gradient(transparent,rgba(120,30,80,.9)); }
+.visor{ color:#fff; }
+.visor p{ color:#ffd6e8; }
+
+/* ===== BRILLITOS DIAMANTE (decoración) ===== */
+body::before,
+body::after{
+  content:""; position:fixed; inset:0; z-index:2; pointer-events:none;
+  background-repeat:repeat;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cg fill='%23ffffff' stroke='%23e08ab4' stroke-width='.8'%3E%3Cpath d='M30 20l5 9 9 5-9 5-5 9-5-9-9-5 9-5z'/%3E%3Cpath d='M118 62l3 6 6 3-6 3-3 6-3-6-6-3 6-3z'/%3E%3Cpath d='M70 126l4 7 7 4-7 4-4 7-4-7-7-4 7-4z'/%3E%3C/g%3E%3Cg fill='%23d9a441'%3E%3Cpath d='M96 14l2 4 4 2-4 2-2 4-2-4-4-2 4-2z'/%3E%3Cpath d='M18 96l2 4 4 2-4 2-2 4-2-4-4-2 4-2z'/%3E%3C/g%3E%3C/svg%3E");
+}
+body::before{ background-size:160px 160px; opacity:.7; }
+body::after{ background-size:250px 250px; background-position:60px 90px; opacity:.5; }
+@media (prefers-reduced-motion:no-preference){
+  body::before{ animation:titilar 3.6s ease-in-out infinite; }
+  body::after{ animation:titilar 5.2s ease-in-out infinite 1.4s; }
+  @keyframes titilar{ 0%,100%{ opacity:.2; } 50%{ opacity:.85; } }
+}
