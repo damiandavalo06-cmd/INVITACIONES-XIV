@@ -17,14 +17,14 @@ const CONFIG = {
 // Fotos ficticias (ilustraciones generadas). Cuando tengas fotos reales,
 // reemplazá "src" por la ruta, por ejemplo "fotos/valen-5.jpg".
 const FOTOS = [
-  { t: "Recién nacida · 2011", c: ["#f3c6d3", "#e6c98a"] },
-  { t: "Primer cumple · 2012", c: ["#e6c98a", "#c9a0dc"] },
-  { t: "Primer día de jardín · 2015", c: ["#9fd3c7", "#f3c6d3"] },
-  { t: "Vacaciones en el sur · 2017", c: ["#8fb8ed", "#e6c98a"] },
-  { t: "Con mis abuelos · 2018", c: ["#c9a0dc", "#f3c6d3"] },
-  { t: "Campeonato de vóley · 2020", c: ["#f7a98b", "#e6c98a"] },
-  { t: "Con mis amigas · 2022", c: ["#e58fb4", "#8fb8ed"] },
-  { t: "Mis quince · 2026", c: ["#e6c98a", "#e58fb4"] }
+  { t: "Recién nacida · 2011", src: "fotos/recien-nacido.jpg", c: ["#f3c6d3", "#e6c98a"] },
+  { t: "Primer cumple · 2012",  src: "fotos/mi-primer-ano.jpg", c: ["#e6c98a", "#c9a0dc"] },
+  { t: "Primer día de jardín2015",  src: "fotos/primer-dia-jardin.jpg", c: ["#9fd3c7", "#f3c6d3"] },
+  { t: "Vacaciones en el sur · 2017", src: "fotos/vaciones.jpg", c: ["#8fb8ed", "#e6c98a"] },
+  { t: "Con mis abuelos · 2018",  src: "fotos/con-mis-abuelos.jpg", c: ["#c9a0dc", "#f3c6d3"] },
+  { t: "Campeonato de vóley 2020",  src: "fotos/en-voley.jpg", c: ["#f7a98b", "#e6c98a"] },
+  { t: "Con mis amigas · 2022",  src: "fotos/con-mis-amigas.jpg", c: ["#e58fb4", "#8fb8ed"] },
+  { t: "Mis quince · 2026",  src: "fotos/mis15.jpg", c: ["#e6c98a", "#e58fb4"] }
 ];
 
 function ilustracion(c, i) {
